@@ -49,14 +49,24 @@ class game:
 
         all_sprites_list = pygame.sprite.Group()
         
+
         lag = screen_height/4
         for i in range(screen_width/player.width):
             # This represents a block
             block = Block(BLACK, 20, 15)
-         
+         	
             # Set a random location for the block
             block.rect.x = i*block.width
             block.rect.y = (lag-15) + random.randrange(30)
+            height=block.rect.y
+            while(height < screen_height ):
+            	subblock = Block(BLACK, 20, 15)
+            	subblock.rect.x=block.rect.x
+            	height = height + subblock.height
+            	subblock.rect.y= height
+            	all_sprites_list.add(subblock)
+         	
+
             lag = block.rect.y
             # Add the block to the list of objects
             block_list.add(block)
@@ -115,7 +125,7 @@ class game:
             clock.tick(60)
          
         pygame.quit()
-
+#############################################
 if __name__ == "__main__" :
     theApp = game(False)
     
