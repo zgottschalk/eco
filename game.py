@@ -32,16 +32,12 @@ class game:
         		):
         		player.rect.y = hit_block.rect.y-player.height
     def run(self):
-#####################################
-        # Initialize Pygame
+
         BLACK = (  0,   0,   0)
         WHITE = (255, 255, 255)
         RED   = (255,   0,   0)
         pygame.init()
-        
 
-
-        # Set the height and width of the screen
         screen_width = 1400
         screen_height = 800
         screen = pygame.display.set_mode([screen_width, screen_height])
@@ -49,15 +45,10 @@ class game:
         player = Player(RED, 10, 15)
         player.rect.y=screen_height/4
          
-        # This is a list of 'sprites.' Each block in the program is
-        # added to this list. The list is managed by a class called 'Group.'
         block_list = pygame.sprite.Group()
-         
-        # This is a list of every sprite. 
-        # All blocks and the player block as well.
+
         all_sprites_list = pygame.sprite.Group()
         
-
         lag = screen_height/4
         for i in range(screen_width/player.width):
             # This represents a block
@@ -70,15 +61,10 @@ class game:
             # Add the block to the list of objects
             block_list.add(block)
             all_sprites_list.add(block)
-         
-        # Create a RED player block
-        
+                 
         all_sprites_list.add(player)
          
-        # Loop until the user clicks the close button.
         done = False
-         
-        # Used to manage how fast the screen updates
         clock = pygame.time.Clock()
           
         # -------- Main Program Loop -----------
@@ -93,8 +79,6 @@ class game:
             self.ApplyGravity(all_sprites_list)
             self.ClimbObsticle(player,block_list)
            
-
-            
             keys=pygame.key.get_pressed()
             player.flush()
             if keys[K_LEFT]:
@@ -103,11 +87,6 @@ class game:
             if keys[K_RIGHT]:
                 player.moveright(screen_width)
 
-
-
-
-
-
             # Get the current mouse position. This returns the position
             # as a list of two numbers.
             '''pos = pygame.mouse.get_pos()
@@ -115,7 +94,6 @@ class game:
             # Fetch the x and y out of the list,
                # just like we'd fetch letters out of a string.
             # Set the player object to the mouse location
-            
 
             player.rect.x = pos[0]
             player.rect.y = pos[1]      
@@ -137,7 +115,7 @@ class game:
             clock.tick(60)
          
         pygame.quit()
-#############################################
+
 if __name__ == "__main__" :
     theApp = game(False)
     
