@@ -44,11 +44,12 @@ class game:
 
         player = Player(RED, 10, 15)
         player.rect.y=screen_height/4
-         
+        
+        subblocks_list = pygame.sprite.Group()
+
         block_list = pygame.sprite.Group()
 
         all_sprites_list = pygame.sprite.Group()
-        
 
         lag = screen_height/4
         for i in range(screen_width/player.width):
@@ -64,6 +65,7 @@ class game:
             	subblock.rect.x=block.rect.x
             	height = height + subblock.height
             	subblock.rect.y= height
+            	subblocks_list.add(subblock)
             	all_sprites_list.add(subblock)
          	
 
@@ -115,14 +117,16 @@ class game:
                 score += 1
                 print(score)
             '''
-            # Draw all the spites
+            # Draw all the spites that may need to be drawn
             all_sprites_list.draw(screen)
          	
+
+
             # Go ahead and update the screen with what we've drawn.
             pygame.display.flip()
          
             # Limit to 60 frames per second
-            clock.tick(60)
+            clock.tick(120)
          
         pygame.quit()
 #############################################
