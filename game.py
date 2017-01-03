@@ -7,7 +7,6 @@ import pygame
 import random
 import time
 
-
 class game:
     def __init__(self,debug):
         self._running = True
