@@ -132,3 +132,4 @@ class game:
 if __name__ == "__main__" :
     theApp = game(False)
     
+#this is the game code containing the game loop and all apspects of controls
