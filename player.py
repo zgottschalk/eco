@@ -1,16 +1,16 @@
 """
 Use sprites to collect blocks.
- 
+
 Sample Python/Pygame Programs
 Simpson College Computer Science
 http://programarcadegames.com/
 http://simpson.edu/computer-science/
- 
+
 Explanation video: http://youtu.be/4W2AqUetBi4
 """
 import pygame
 from block import Block
- 
+
 
 class Player(Block):
     """
@@ -28,17 +28,17 @@ class Player(Block):
             self.rect.x -= self.width*self.speed
             if self.rect.x == -1:
                 self.rect.x = 0
-        
+
     def moveright(self,screen_width):
-        if self.move_ticker == 0:   
-            self.move_ticker = 10     
+        if self.move_ticker == 0:
+            self.move_ticker = 10
             self.rect.x+=self.width*self.speed
             if self.rect.x >= screen_width:
                 self.rect.x = screen_width
-        
+
     def jump(self):
         #move player up their height
-        
+
         pass
 
         pass
